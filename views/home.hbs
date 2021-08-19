@@ -1,0 +1,41 @@
+<h1> Spotify Subscriptions </h1>
+
+<h3>
+  <a href="http://localhost:8888/login">login</a>
+
+{{#if access_token}}
+  | <a href="http://localhost:8888/get-me?access_token={{access_token}}">get-me</a>
+  | <a href="http://localhost:8888/generate-playlist?access_token={{access_token}}">generate-playlist</a>
+{{/if}}
+</h3>
+
+{{#if errorMessage}}
+  <div class="errorBox">
+    Error: {{errorMessage}}
+  </div>
+{{/if}}
+Users: [{{users}}] <br>
+
+{{#if access_token}}
+  Access Token: <input type="text" id="copyToken" value="{{access_token}}">
+  <button onclick="copyTokenToClipboard()">Copy token</button>
+
+{{/if}}
+
+<script>
+// function from w3:
+function copyTokenToClipboard() {
+  /* Get the text field */
+  var copyText = document.getElementById("copyToken");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied Access Token To Clipboard");
+}
+</script>

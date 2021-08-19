@@ -1,0 +1,4 @@
+- [x] get spotify access tokens
+- [x] read some user data and display it
+- [x]
+- [ ]
